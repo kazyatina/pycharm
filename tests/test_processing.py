@@ -25,7 +25,7 @@ def state_status() -> list:
         ),
     ],
 )
-def test_filter_by_state(state_status: list, state: str, expected: list):
+def test_filter_by_state(state_status: list, state: str, expected: list) -> None:
     assert filter_by_state(state_status, state) == expected
 
 
@@ -53,6 +53,6 @@ def date_status() -> list:
         )
     ],
 )
-def test_sort_by_date(date_status: list, data: bool, expected: list) -> list:
+def test_sort_by_date(date_status: list, data: bool, expected: list) -> None:
     """Тест фильтрации по дате (по умолчанию - по убыванию)."""
     assert sort_by_date(date_status, data) == expected

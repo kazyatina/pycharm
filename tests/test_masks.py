@@ -31,17 +31,17 @@ def edge_case_card_numbers() -> list:
         ]
     ],
 )
-def test_get_mask_card_number_valid(card_number: int, expected: str):
+def test_get_mask_card_number_valid(card_number: int, expected: str) -> None:
     assert get_mask_card_number(card_number) == expected
 
 
 @pytest.mark.parametrize("card_number", [12345, 1234567890, 123456789012345])
-def test_get_mask_card_number_invalid_length(card_number: int):
+def test_get_mask_card_number_invalid_length(card_number: int) -> None:
     assert get_mask_card_number(card_number) == "Некорректный ввод"
 
 
 @pytest.mark.parametrize("card_number", [1234, 12345678901234567890])
-def test_get_mask_card_number_edge_cases(card_number: int):
+def test_get_mask_card_number_edge_cases(card_number: int) -> None:
     result = get_mask_card_number(card_number)
     assert isinstance(result, str)
 
@@ -69,10 +69,10 @@ def invalid_account_numbers() -> list:
         ]
     ],
 )
-def test_get_mask_account_valid(account_number: int, expected: str):
+def test_get_mask_account_valid(account_number: int, expected: str) -> None:
     assert get_mask_account(account_number) == expected
 
 
 @pytest.mark.parametrize("account_number", [123, 12])
-def test_get_mask_account_invalid(account_number: int):
+def test_get_mask_account_invalid(account_number: int) -> None:
     assert get_mask_account(account_number) == "Некорректный ввод"
