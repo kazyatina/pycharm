@@ -1,4 +1,4 @@
-from typing import Iterator, Any
+from typing import Any, Iterator
 
 transactions_list = [
     {
