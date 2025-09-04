@@ -8,7 +8,6 @@ def get_mask_card_number(card_number: int) -> str:
         return mask_number
     return 'Некорректный ввод'
 
-print(get_mask_card_number(7000792289606361))
 
 def get_mask_account(account: int) -> str:
     """Функция принимает на вход номер счета и возвращает его маску.
@@ -19,4 +18,3 @@ def get_mask_account(account: int) -> str:
         return mask_account
     return "Некорректный ввод"
 
-print(get_mask_account(7000792289606361))
