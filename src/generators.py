@@ -92,7 +92,7 @@ def card_number_generator(start: int = 1, stop: int = 9999999999999998) -> Itera
     """Генератор номеров карт в диапазоне [start, stop]."""
     for number in range(start, stop +1):
         if stop > 9999999999999999:
-            raise ValueError("Число превышает допустимый предел")
+            raise ValueError("Число превышает допустимый предел (16 цифр)")
         # Форматируем число в 16-значное с ведущими нулями
         max_width = 16
         card_num = f"{number:0{max_width}}"
@@ -101,4 +101,4 @@ def card_number_generator(start: int = 1, stop: int = 9999999999999998) -> Itera
         yield formatted
 
 
-print(list(card_number_generator(10, 12)))
+
