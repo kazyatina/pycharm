@@ -90,7 +90,7 @@ for x in iterator_2:
 
 def card_number_generator(start: int = 1, stop: int = 9999999999999998) -> Iterator[str]:
     """Генератор номеров карт в диапазоне [start, stop]."""
-    for number in range(start, stop + 1):
+    for number in range(start, stop +1):
         if stop > 9999999999999999:
             raise ValueError("Число превышает допустимый предел")
         # Форматируем число в 16-значное с ведущими нулями
