@@ -62,36 +62,37 @@ def filter_by_currency(transactions: list, currency_list: str) -> Iterator[Any] 
 
 usd_transactions = filter_by_currency(transactions_list, "USD")
 iterator_1 = iter(usd_transactions)  # Преобразуем список в итератор
-for _ in range(2):  # Как узнать какой диапозон ставить, если спискок огромный?
-    if _ != "USD":
-        print("Операций нет.")
-    print(next(iterator_1))
-
-
-# for x in iterator_1: - Почему выводит только 1 транзакцию, а не 2?
+# for _ in range(2):  # Как узнать какой диапозон ставить, если спискок огромный?
 #     print(next(iterator_1))
+for x in iterator_1:
+    print(x)
 
 
-def transaction_descriptions(transactions: list) -> list[Any]:
+def transaction_descriptions(transactions: list) -> Iterator[Any] | str | list[Any]:
     """Генератор, который принимает список словарей с транзакциями и возвращает описание каждой операции
     по очереди."""
     descriptions = [transactions["description"] for transactions in transactions]
-    return descriptions
+    if not descriptions:
+        yield 'Описания транзакций нет.'
+        return  # Добавь это, чтобы прекратить выполнение функции
+
+    for description in descriptions:
+        yield description
 
 
 descriptions_list = transaction_descriptions(transactions_list)
 iterator_2 = iter(descriptions_list)
-for _ in range(4):
-    print(next(iterator_2))
-
-
-# for x in iterator_2: - Почему выводит только 2 описания, а не 4?
+# for _ in range(5):  # Как узнать какой диапозон ставить, если спискок огромный?
 #     print(next(iterator_2))
+for x in iterator_2:
+    print(x)
 
 
-def card_number_generator(start: int, end: int) -> Iterator[str]:
-    """Генератор номеров карт в диапазоне [start, end]."""
-    for number in range(start, end + 1):
+def card_number_generator(start: int = 1, stop: int = 9999999999999998) -> Iterator[str]:
+    """Генератор номеров карт в диапазоне [start, stop]."""
+    for number in range(start, stop + 1):
+        if stop > 9999999999999999:
+            raise ValueError("Число превышает допустимый предел")
         # Форматируем число в 16-значное с ведущими нулями
         max_width = 16
         card_num = f"{number:0{max_width}}"
@@ -100,4 +101,4 @@ def card_number_generator(start: int, end: int) -> Iterator[str]:
         yield formatted
 
 
-print(list(card_number_generator(0, 5)))
+print(list(card_number_generator(10, 12)))
