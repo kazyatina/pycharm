@@ -52,3 +52,20 @@ def test_card_number_generator_errors() -> None:
             card_number_generator(1234567890123458, 99999999999999999)
     except:
         assert True
+
+
+@pytest.fixture
+def too_big_number() -> int:
+    return 99999999999999999
+
+
+@pytest.mark.parametrize(
+    "start, stop",
+    [
+        (9999999999999998, 99999999999999999),  # Пример значений, вызывающих ошибку
+    ],
+)
+def test_incorrect_number(start: int, stop: int, too_big_number: int) -> None:
+    """Тест на обработку вызова ошибки ValueError"""
+    with pytest.raises(ValueError, match="Число превышает допустимый предел \(16 цифр\)"):
+        list(card_number_generator(start, stop))
