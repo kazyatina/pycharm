@@ -8,9 +8,9 @@ from src.masks import get_mask_account, get_mask_card_number
     [
         (num, expected)
         for num, expected in [
-        (1234567890123456, "1234 56 ** **** 3456"),
-        (1111222233334444, "1111 22 ** **** 4444"),
-    ]
+            (1234567890123456, "1234 56 ** **** 3456"),
+            (1111222233334444, "1111 22 ** **** 4444"),
+        ]
     ],
 )
 def test_get_mask_card_number_valid(card_number: int, expected: str) -> None:
@@ -33,9 +33,9 @@ def test_get_mask_card_number_edge_cases(card_number: int) -> None:
     [
         (num, expected)
         for num, expected in [
-        (1234567890123456, "**3456"),
-        (987654321, "**4321"),
-    ]
+            (1234567890123456, "**3456"),
+            (987654321, "**4321"),
+        ]
     ],
 )
 def test_get_mask_account_valid(account_number: int, expected: str) -> None:

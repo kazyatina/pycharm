@@ -49,27 +49,27 @@ def correct_filter_by_currency() -> list:
     "code, expected",
     [
         (
-                "USD",
-                [
-                    {
-                        "id": 939719570,
-                        "state": "EXECUTED",
-                        "date": "2018-06-30T02:08:58.425572",
-                        "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
-                        "description": "Перевод организации",
-                        "from": "Счет 75106830613657916952",
-                        "to": "Счет 11776614605963066702",
-                    },
-                    {
-                        "id": 142264268,
-                        "state": "EXECUTED",
-                        "date": "2019-04-04T23:20:05.206878",
-                        "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
-                        "description": "Перевод со счета на счет",
-                        "from": "Счет 19708645243227258542",
-                        "to": "Счет 75651667383060284188",
-                    },
-                ],
+            "USD",
+            [
+                {
+                    "id": 939719570,
+                    "state": "EXECUTED",
+                    "date": "2018-06-30T02:08:58.425572",
+                    "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
+                    "description": "Перевод организации",
+                    "from": "Счет 75106830613657916952",
+                    "to": "Счет 11776614605963066702",
+                },
+                {
+                    "id": 142264268,
+                    "state": "EXECUTED",
+                    "date": "2019-04-04T23:20:05.206878",
+                    "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
+                    "description": "Перевод со счета на счет",
+                    "from": "Счет 19708645243227258542",
+                    "to": "Счет 75651667383060284188",
+                },
+            ],
         )
     ],
 )
@@ -98,39 +98,41 @@ def filter_by_none_currency() -> list:
             "description": "Перевод со счета на счет",
             "from": "Счет 19708645243227258542",
             "to": "Счет 75651667383060284188",
-        }]
+        },
+    ]
 
 
 @pytest.mark.parametrize(
     "code, expected",
     [
         (
-                "USD",
-                [
-                    {
-                        "id": 939719570,
-                        "state": "EXECUTED",
-                        "date": "2018-06-30T02:08:58.425572",
-                        "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
-                        "description": "Перевод организации",
-                        "from": "Счет 75106830613657916952",
-                        "to": "Счет 11776614605963066702",
-                    },
-                    {
-                        "id": 142264268,
-                        "state": "EXECUTED",
-                        "date": "2019-04-04T23:20:05.206878",
-                        "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
-                        "description": "Перевод со счета на счет",
-                        "from": "Счет 19708645243227258542",
-                        "to": "Счет 75651667383060284188",
-                    },
-                ],
+            "USD",
+            [
+                {
+                    "id": 939719570,
+                    "state": "EXECUTED",
+                    "date": "2018-06-30T02:08:58.425572",
+                    "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
+                    "description": "Перевод организации",
+                    "from": "Счет 75106830613657916952",
+                    "to": "Счет 11776614605963066702",
+                },
+                {
+                    "id": 142264268,
+                    "state": "EXECUTED",
+                    "date": "2019-04-04T23:20:05.206878",
+                    "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
+                    "description": "Перевод со счета на счет",
+                    "from": "Счет 19708645243227258542",
+                    "to": "Счет 75651667383060284188",
+                },
+            ],
         )
-    ])
+    ],
+)
 def test_filter_by_none_currency(filter_by_none_currency: list, code: str, expected: list) -> None:
     """тест, проверяющий, что функция корректно фильтрует транзакции по заданной валюте."""
-    assert filter_by_currency(filter_by_none_currency, code) == 'Транзакций нет.'
+    assert filter_by_currency(filter_by_none_currency, code) == "Транзакций нет."
 
 
 @pytest.fixture
@@ -142,30 +144,31 @@ def empty_list_filter_by_currency() -> list:
     "code, expected",
     [
         (
-                "USD",
-                [
-                    {
-                        "id": 939719570,
-                        "state": "EXECUTED",
-                        "date": "2018-06-30T02:08:58.425572",
-                        "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
-                        "description": "Перевод организации",
-                        "from": "Счет 75106830613657916952",
-                        "to": "Счет 11776614605963066702",
-                    },
-                    {
-                        "id": 142264268,
-                        "state": "EXECUTED",
-                        "date": "2019-04-04T23:20:05.206878",
-                        "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
-                        "description": "Перевод со счета на счет",
-                        "from": "Счет 19708645243227258542",
-                        "to": "Счет 75651667383060284188",
-                    },
-                ],
+            "USD",
+            [
+                {
+                    "id": 939719570,
+                    "state": "EXECUTED",
+                    "date": "2018-06-30T02:08:58.425572",
+                    "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
+                    "description": "Перевод организации",
+                    "from": "Счет 75106830613657916952",
+                    "to": "Счет 11776614605963066702",
+                },
+                {
+                    "id": 142264268,
+                    "state": "EXECUTED",
+                    "date": "2019-04-04T23:20:05.206878",
+                    "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
+                    "description": "Перевод со счета на счет",
+                    "from": "Счет 19708645243227258542",
+                    "to": "Счет 75651667383060284188",
+                },
+            ],
         )
-    ])
+    ],
+)
 def test_empty_list_filter_by_currency(empty_list_filter_by_currency: list, code: str, expected: list) -> None:
     """Тест, проверяющий, что есть обработка пустого списка или списка
     без соответствующих валютных операций."""
-    assert filter_by_currency(empty_list_filter_by_currency, code) == 'Транзакций нет.'
+    assert filter_by_currency(empty_list_filter_by_currency, code) == "Транзакций нет."
