@@ -56,7 +56,7 @@ def filter_by_currency(transactions: list, currency_list: str) -> Iterator[Any] 
 
     transaction = [trans for trans in transactions if trans["operationAmount"]["currency"]["code"] == "USD"]
     if not transactions or not transaction:
-        return 'Транзакций нет.'
+        return "Транзакций нет."
     return transaction
 
 
@@ -73,7 +73,7 @@ def transaction_descriptions(transactions: list) -> Iterator[Any] | str | list[A
     по очереди."""
     descriptions = [transactions["description"] for transactions in transactions]
     if not descriptions:
-        yield 'Описания транзакций нет.'
+        yield "Описания транзакций нет."
         return  # Добавь это, чтобы прекратить выполнение функции
 
     for description in descriptions:
@@ -90,15 +90,12 @@ for x in iterator_2:
 
 def card_number_generator(start: int = 1, stop: int = 9999999999999998) -> Iterator[str]:
     """Генератор номеров карт в диапазоне [start, stop]."""
-    for number in range(start, stop +1):
+    for number in range(start, stop + 1):
         if stop > 9999999999999999:
             raise ValueError("Число превышает допустимый предел (16 цифр)")
         # Форматируем число в 16-значное с ведущими нулями
         max_width = 16
         card_num = f"{number:0{max_width}}"
         # Разбиваем на группы по 4 цифры
-        formatted = " ".join([card_num[i: i + 4] for i in range(0, 16, 4)])
+        formatted = " ".join([card_num[i : i + 4] for i in range(0, 16, 4)])
         yield formatted
-
-
-
