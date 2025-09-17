@@ -11,8 +11,8 @@ def log(filename=None):
         @wraps(func)
         def inner(*args, **kwargs):
             try:
-                result = func(*args, **kwargs)
                 start_time = datetime.now()
+                result = func(*args, **kwargs)
                 end_time = datetime.now()
                 work_time = end_time - start_time
                 log_message = f'{func.__name__} ок. Результат: {result}.\n'
@@ -22,8 +22,7 @@ def log(filename=None):
                         log_file.write(log_message)
                         print(log_message)
                         print(f'Время начала:{start_time}. Время окончания:{end_time}. Длительность :{work_time}')
-                        log_file.close()
-
+                        
             except Exception as e:
                 result = None
                 log_message = (
@@ -48,4 +47,4 @@ def example(x: int, y: int) -> float:
     return x / y
 
 
-# example(35, 5)
+example(35, 5)
