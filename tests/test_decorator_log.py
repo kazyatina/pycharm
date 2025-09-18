@@ -29,13 +29,13 @@ def test_log_no_args(capsys):
     result = log_no_args()
     assert result == "No arguments"
     captured = capsys.readouterr()
-    assert f'log_no_args ок. Результат: {result}.' in captured.out
+    assert f"log_no_args ок. Результат: {result}." in captured.out
 
 
 @log(filename=temp_filename)
 def log_except():
     """Проверка обработки других исключений"""
-    return {'a': 1}['b']
+    return {"a": 1}["b"]
 
 
 def test_log_except(capsys):
@@ -54,7 +54,7 @@ def test_lod_diff_arg(capsys):
     result = lod_diff_arg("Python ", "the best")
     assert result == "Python the best"
     captured = capsys.readouterr()
-    assert f'lod_diff_arg ок. Результат: Python the best.\n' in captured.out
+    assert f"lod_diff_arg ок. Результат: Python the best.\n" in captured.out
 
 
 @log(filename="test_log.txt")
@@ -63,6 +63,7 @@ def log_add(x, y):
 
 
 # Тестовая функция
+
 
 def test_log_success():
     if os.path.exists("test_log.txt"):

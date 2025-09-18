@@ -15,24 +15,21 @@ def log(filename=None):
                 result = func(*args, **kwargs)
                 end_time = datetime.now()
                 work_time = end_time - start_time
-                log_message = f'{func.__name__} ок. Результат: {result}.\n'
+                log_message = f"{func.__name__} ок. Результат: {result}.\n"
 
                 if filename:
                     with open(filename, "a", encoding="utf-8") as log_file:
                         log_file.write(log_message)
                         print(log_message)
-                        print(f'Время начала:{start_time}. Время окончания:{end_time}. Длительность :{work_time}')
-                        
+                        print(f"Время начала:{start_time}. Время окончания:{end_time}. Длительность :{work_time}")
+
             except Exception as e:
                 result = None
-                log_message = (
-                    f"{func.__name__} error: {e}. Inputs: {args}, {kwargs}\n"
-                )
+                log_message = f"{func.__name__} error: {e}. Inputs: {args}, {kwargs}\n"
                 if filename:
                     with open(filename, "a", encoding="utf-8") as log_file:
                         log_file.write(log_message)
                         print(log_message)
-
 
             return result
 
