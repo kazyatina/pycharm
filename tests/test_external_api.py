@@ -18,19 +18,11 @@ class TestGetRubAmount(unittest.TestCase):
         mock_response.json.return_value = {"result": 75.50}
         mock_get.return_value = mock_response
 
-        transaction = {
-            "operationAmount": {
-                "amount": "1",
-                "currency": {
-                    "code": "USD"
-                }
-            }
-        }
+        transaction = {"operationAmount": {"amount": "1", "currency": {"code": "USD"}}}
         result = get_rub_amount(transaction)
         self.assertEqual(result, 75.50)
 
         mock_get.assert_called_once()  # Проверяем, что API был вызван
-
 
     @patch("requests.get")  # Патчим requests.get в вашем модуле
     @patch("os.getenv")  # Патчим os.getenv для получения API_KEY
