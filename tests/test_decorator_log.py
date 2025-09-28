@@ -16,7 +16,7 @@ def test_log_correct(capsys):
     result = log_correct(4, 2)
     assert result == 8
     captured = capsys.readouterr()
-    assert f"log_correct ок. Результат: 8.\n" in captured.out
+    assert "log_correct ок. Результат: 8.\n" in captured.out
 
 
 @log(filename=temp_filename)
@@ -54,7 +54,7 @@ def test_lod_diff_arg(capsys):
     result = lod_diff_arg("Python ", "the best")
     assert result == "Python the best"
     captured = capsys.readouterr()
-    assert f"lod_diff_arg ок. Результат: Python the best.\n" in captured.out
+    assert "lod_diff_arg ок. Результат: Python the best.\n" in captured.out
 
 
 @log(filename="test_log.txt")

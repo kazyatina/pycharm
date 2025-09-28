@@ -50,7 +50,7 @@ def test_card_number_generator_errors() -> None:
             card_number_generator(1234567890123458, 1234567890123456)
         with pytest.raises(ValueError):
             card_number_generator(1234567890123458, 99999999999999999)
-    except:
+    except Exception:
         assert True
 
 
