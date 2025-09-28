@@ -69,3 +69,4 @@ def test_incorrect_number(start: int, stop: int, too_big_number: int) -> None:
     """Тест на обработку вызова ошибки ValueError"""
     with pytest.raises(ValueError, match="Число превышает допустимый предел \\(16 цифр\\)"):
         list(card_number_generator(start, stop))
+

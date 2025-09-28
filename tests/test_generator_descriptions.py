@@ -20,6 +20,7 @@ def transactions() -> list[dict]:
     ],
 )
 def test_transaction_descriptions(transactions: list[dict], expected: Any) -> None:
+    """ Тест на корректный вывод"""
     descriptions = list(transaction_descriptions(transactions))
     assert descriptions == expected
 
@@ -36,5 +37,6 @@ def empty_descriptions() -> list:
     ],
 )
 def test_empty_descriptions(empty_descriptions: list, expected: Any) -> None:
+    """ Тест на проверку пустого списка"""
     empty_list = list(transaction_descriptions(empty_descriptions))
     assert empty_list == ["Описания транзакций нет."]
