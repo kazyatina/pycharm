@@ -20,7 +20,7 @@ def read_financial_operations(csv_file_path):
         return transactions
     except FileNotFoundError:
         # Если файл не найден, возбуждаем исключение FileNotFoundError
-        raise FileNotFoundError(f"No such file or directory")
+        raise FileNotFoundError("No such file or directory")
     except Exception as e:
         # Обработка других возможных ошибок
         print(f"Произошла ошибка при чтении файла: {e}")
