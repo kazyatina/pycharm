@@ -12,22 +12,18 @@ def read_excel_file(excel_file_path):
     :return: Список словарей с транзакциями
     """
 
-    transactions = []
     try:
-        with open(excel_file_path, mode="r", encoding="utf-8") as file_ex:
-            reader = pd.read_excel(file_ex)
-            for row in reader:
-                transactions.append(row)
+        reader = pd.read_excel(excel_file_path)
+        dict_list = reader.to_dict(orient="records")
+        return dict_list
 
-        return transactions
     except FileNotFoundError:
         # Если файл не найден, возбуждаем исключение FileNotFoundError
-        raise FileNotFoundError(f"No such file or directory")
+        raise FileNotFoundError("No such file or directory")
     except Exception as e:
         # Обработка других возможных ошибок
         print(f"Произошла ошибка при чтении файла: {e}")
         raise  # Перевыбрасываем исключение для дальнейшей обработки вызывающим кодом
 
 
-excel_data = pd.read_excel(filepath_xlsx)
-print(excel_data.head())
+print(read_excel_file(filepath_xlsx))
