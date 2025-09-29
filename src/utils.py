@@ -16,7 +16,7 @@ logging.basicConfig(
     ],
 )
 
-logger = logging.getLogger('utils.log')
+logger = logging.getLogger("utils.log")
 
 
 def fin_trans(link_to_j_file="../data/operations.json"):
