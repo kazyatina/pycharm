@@ -26,4 +26,4 @@ def read_excel_file(excel_file_path):
         raise  # Перевыбрасываем исключение для дальнейшей обработки вызывающим кодом
 
 
-print(read_excel_file(filepath_xlsx))
+# print(read_excel_file(filepath_xlsx))
